@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Test AJAX page</title>
+  <link rel="stylesheet" type="text/css" href="./lab_styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="header">Test AJAX page</div>
+      <button class="button" onclick="loadData()">Load Some JSON</button>
+      <div class="content"></div>
+      <div class="footer"></div>
+    </div>
+  </div>
+  <script>
+    function loadData() {
+      // What ARE promises? 
+      fetch('ajax_sample.json')
+        .then(res=> res.json()) 
+        .then(res => {
+            listing = [];
+            for (i = 0; i <243 ; i++){
+                listing.push(res[i].name);
+            }
+            countnames = [];
+            for (i = 0; i<243; i++){
+                countnames.push(res[i].code);
+            }
+        const info = document.querySelector(".content");
+        info.innerHTML ="";
+        info.style.listStyleType = "decimal";
+        ezlist =[];
+        while (ezlist.length <15){
+            a = Math.floor(Math.random()*242)+1;
+            if (ezlist.indexOf(n) ===-1)
+            ezlist.push(n);
+
+        }
+console.log("15 unique random numbers as indexes", ezlist);
+for (i = 0; i <15; i++){
+  b = document.createElement("li");
+  b.innerText = listing[ezlist[i]] + " ( " + countnames[ezlist[i]] + ")";
+  info.appendChild(el);
+}
+      
+  </script>
+</body>
+        
+</html>
+
+
